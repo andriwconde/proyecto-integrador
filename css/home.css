@@ -13,7 +13,9 @@ section{
   width:80%;
   margin-top: 0px;
 }
-
+.rst{
+  background-color: #b56576;
+}
 .logo{
   margin-top: 20px;
   width: 80%;
