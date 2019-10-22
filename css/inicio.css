@@ -1,0 +1,85 @@
+*{
+  font-family: 'Poppins', sans-serif;
+}
+body{
+
+}
+/* COLOR HEADER */
+header nav.bg-light {
+  background-color: #562C2C !important;
+}
+/* COLOR LOGO */
+.navbar-light .navbar-brand {
+  color: #127475;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+/* COLOR LINKS */
+.navbar-light .navbar-nav .nav-link {
+  color: #E56B6F;
+  text-transform: uppercase;
+}
+/* COLOR BOTONES */
+.btn-outline-dark {
+  color: #FFF;
+  background-color: #E56B6F;
+  border-color: #E56B6F;
+}
+.btn-outline-dark:hover{
+  background-color: #BD575A;
+  border-color: #BD575A;
+}
+.btn-outline-dark:target{
+  background-color: #BD575A;
+  border-color: #BD575A;
+}
+a:not([href]):not([tabindex]){
+  color: #FFF;
+}
+a:not([href]):not([tabindex]):hover{
+  color: #FFF;
+}
+#carrito{
+  color: #FFF;
+}
+/* HEADER LOGIN */
+.modal-header{
+  background-color: #562C2C;
+  border-top-left-radius: 0rem;
+  border-top-right-radius: 0rem;
+}
+.modal-title{
+  color: #E56B6F;
+}
+/* FOOTER */
+footer{
+  background-color: #562C2C;
+}
+footer div.footer-copyright{
+  color: #E56B6F;
+  background-color: #462323;
+}
+/* LOGOS FOOTER */
+i{
+  color: #E56B6F;
+}
+/* ENLACES */
+a{
+  color: #127475;
+}
+/* IMAGENES */
+img{
+  width: 100%;
+}
+/* TITULO MENU */
+#tituloMenu{
+  color: #562C2C;
+  text-transform: uppercase;
+  background-color: #F5DFBB;
+  padding-left: 15px;
+}
+.row{
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-top: 2vh;
+}

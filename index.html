@@ -4,185 +4,205 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <!-- Link Bootstrap -->
+  <!-- link bootsrap -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <!-- Link fontawesome -->
   <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-  <!-- Link CSS -->
-  <link rel="stylesheet" href="css/styles.css">
-
-  <title>Home usuario</title>
+  <!-- Link a google fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
+  <!-- Link a CSS -->
+  <link rel="stylesheet" href="css/index.css">
+  <title>Index</title>
 </head>
 <body>
 
-  <!-- CONTAINER -->
-  <div class="contenedor">
+  <header>
+    <!-- NABVAR -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light d-flex justify-content-between">
+      <a class="navbar-brand" href="index.html">Logo</a>
 
-    <!-- HEADER -->
-    <div class="menu">
+      <div class="d-flex justify-content-end" id="navbarSupportedContent">
 
-      <header>
-        <nav class="encabezado">
+        <!-- BOTON DE LOGIN     -->
+        <form class="form-inline my-2 my-lg-0">
 
-          <h1>Logo</h1>
+          <button type="button" class="btn btn-outline-dark" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Acceder</button>
 
-          <ul>
-            <li><a href="#">Promociones</a></li>
-            <li><a href="#">Menu fijo</a></li>
-            <li><a href="#">Contacto</a></li>
-            <li><a href="#">fqa</a></li>
-          </ul>
+        </form>
 
-            <img src="img/user.jpeg" alt="Foto perfil">
+        <!-- FORMULARIO DE LOGIN -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Ingresar</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <form>
 
-          <h5>Lorem ipsum dolor.</h5>
+                  <div class="form-group">
+                    <label for="recipient-name" class="col-form-label">Usuario:</label>
+                    <input type="text" class="form-control" id="recipient-name">
+                  </div>
 
-          <button onclick="location.href='user.html'" type="submit" name="button">Perfil</button>
+                  <div class="form-group">
+                    <label for="recipient-name" class="col-form-label">Contraseña:</label>
+                    <input type="password" class="form-control" id="recipient-name">
+                  </div>
 
-          <iframe src="https://calendar.google.com/calendar/embed?height=160&amp;wkst=1&amp;bgcolor=%23ffffff&amp;ctz=America%2FArgentina%2FBuenos_Aires&amp;src=bWFydGlnbm9uZWp1YW5tYXJ0aW5AZ21haWwuY29t&amp;src=YWRkcmVzc2Jvb2sjY29udGFjdHNAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&amp;src=ZXMuYXIjaG9saWRheUBncm91cC52LmNhbGVuZGFyLmdvb2dsZS5jb20&amp;color=%23039BE5&amp;color=%2333B679&amp;color=%230B8043&amp;showTitle=0&amp;showNav=0&amp;showPrint=0&amp;showCalendars=1&amp;showTz=0&amp;showTabs=0" style="border-width:0" width="200" height="160" frameborder="0" scrolling="no"></iframe>
+                  <div class="d-flex justify-content-between">
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" id="gridCheck">
+                        <label class="form-check-label" for="gridCheck">
+                          Recordarme
+                        </label>
+                    </div>
 
-        </nav>
-      </header>
+                    <div class="form-group">
+                      <a href="registro.html">Registrarme</a>
+                    </div>
+                  </div>
+
+                </form>
+              </div>
+
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                <a href="inicio.html"><button type="button" class="btn btn-outline-dark">Aceptar</button></a>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </nav>
+  </header>
+
+  <!-- CARRUSEL -->
+  <div class="bd-example rounded mx-auto d-block">
+    <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+
+      <ol class="carousel-indicators">
+        <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
+        <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
+        <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
+      </ol>
+
+      <div class="carousel-inner">
+
+        <div class="carousel-item active">
+          <img src="img/comidasDos.jpeg" class="d-block w-100" alt="...">
+          <div class="carousel-caption d-none d-md-block">
+            <h5>First slide label</h5>
+            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+          </div>
+        </div>
+
+        <div class="carousel-item">
+          <img src="img/comidaTres.jpeg" class="d-block w-100" alt="...">
+          <div class="carousel-caption d-none d-md-block">
+            <h5>Second slide label</h5>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          </div>
+        </div>
+
+        <div class="carousel-item">
+          <img src="img/comida.jpeg" class="d-block w-100" alt="...">
+          <div class="carousel-caption d-none d-md-block">
+            <h5>Third slide label</h5>
+            <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+
+      <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
 
     </div>
-
-    <!-- PRODUCTOS -->
-    <div class="productos">
-
-      <!-- PRIMER MENU -->
-      <nav class="seccionesUno">
-
-        <div class="deco">
-
-        </div>
-        <div class="off">
-
-        </div>
-
-        <h2 class="parallax">Menu Ensaladas</h2>
-
-        <section class="primersection">
-
-          <a href="producto.html">
-            <article class="">
-              <img src="img/comida.jpeg" alt="">
-              <div class="float">
-                <h4>Titulo Comida</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa tempora, iusto quod sunt provident soluta inventore eius, quia, dolor repellendus error voluptates repudiandae.</p>
-              </div>
-            </article>
-          </a>
-
-          <a href="producto.html">
-            <article class="">
-              <img src="img/comida.jpeg" alt="">
-              <div class="float">
-                <h4>Titulo Comida</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa tempora, iusto quod sunt provident soluta inventore eius, quia, dolor repellendus error voluptates repudiandae.</p>
-              </div>
-            </article>
-          </a>
-
-          <a href="producto.html">
-            <article class="">
-              <img src="img/comida.jpeg" alt="">
-              <div class="float">
-                <h4>Titulo Comida</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa tempora, iusto quod sunt provident soluta inventore eius, quia, dolor repellendus error voluptates repudiandae.</p>
-              </div>
-            </article>
-          </a>
-
-        </section>
-
-      </nav>
-
-      <!-- SEGUNDO MENU -->
-      <nav class="seccionesDos">
-
-        <h2 class="parallaxdos">Menu postres</h2>
-
-        <section class="segundasection">
-
-          <a href="producto.html">
-            <article class="">
-              <img src="img/comidasDos.jpeg" alt="">
-              <div class="float">
-                <h4>Titulo Comida</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa tempora, iusto quod sunt provident soluta inventore eius, quia, dolor repellendus error voluptates repudiandae.</p>
-              </div>
-            </article>
-          </a>
-
-          <a href="producto.html">
-            <article class="">
-              <img src="img/comidasDos.jpeg" alt="">
-              <div class="float">
-                <h4>Titulo Comida</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa tempora, iusto quod sunt provident soluta inventore eius, quia, dolor repellendus error voluptates repudiandae.</p>
-              </div>
-            </article>
-          </a>
-
-          <a href="producto.html">
-            <article class="">
-              <img src="img/comidasDos.jpeg" alt="">
-              <div class="float">
-                <h4>Titulo Comida</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa tempora, iusto quod sunt provident soluta inventore eius, quia, dolor repellendus error voluptates repudiandae.</p>
-              </div>
-            </article>
-          </a>
-
-        </section>
-
-      </nav>
-
-      <!-- TERCER MENU -->
-      <nav class="seccionesTres">
-
-        <h2 class="parallaxtres">Menu principal</h2>
-
-        <section class="tercerasection">
-
-          <a href="producto.html">
-            <article class="">
-              <img src="img/principal.jpeg" alt="">
-              <div class="float">
-                <h4>Titulo Comida</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa tempora, iusto quod sunt provident soluta inventore eius, quia, dolor repellendus error voluptates repudiandae.</p>
-              </div>
-            </article>
-          </a>
-
-          <a href="producto.html">
-            <article class="">
-              <img src="img/principal.jpeg" alt="">
-              <div class="float">
-                <h4>Titulo Comida</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa tempora, iusto quod sunt provident soluta inventore eius, quia, dolor repellendus error voluptates repudiandae.</p>
-              </div>
-            </article>
-          </a>
-
-          <a href="producto.html">
-            <article class="">
-              <img src="img/principal.jpeg" alt="">
-              <div class="float">
-                <h4>Titulo Comida</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa tempora, iusto quod sunt provident soluta inventore eius, quia, dolor repellendus error voluptates repudiandae.</p>
-              </div>
-            </article>
-          </a>
-
-        </section>
-
-      </nav>
-
-    </div>
-
   </div>
 
+  <!-- SECTION INFORMATIVA -->
+  <section class="text-center rounded mx-auto d-block my-5">
+
+    <div class="row col-12">
+
+      <div class="col-md-4">
+
+        <a href="contacto.html"><i class="fas fa-map-marked-alt fa-3x red-text"></i></a>
+        <h5 class="font-weight-bold my-4">Contactanos</h5>
+
+      </div>
+
+      <div class="col-md-4">
+
+        <a href="#"><i class="fas fa-book fa-3x cyan-text"></i></a>
+        <h5 class="font-weight-bold my-4">FQA</h5>
+
+      </div>
+
+      <div class="col-md-4">
+
+        <a href="#"><i class="far fa-address-card fa-3x orange-text"></i></a>
+        <h5 class="font-weight-bold my-4">Nosotros</h5>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="page-footer font-small cyan darken-3">
+
+    <div class="container">
+      <div class="row">
+
+        <div class="col-md-12 py-5">
+          <div class="d-flex justify-content-center">
+
+            <!-- Facebook -->
+            <a class="fb-ic" href="https://www.facebook.com/">
+              <i class="fab fa-facebook-square fa-lg white-text mr-md-5 mr-3 fa-2x"></i>
+            </a>
+            <!-- Twitter -->
+            <a class="tw-ic" href="https://www.twitter.com/">
+              <i class="fab fa-twitter fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+            </a>
+            <!--Linkedin -->
+            <a class="li-ic" href="https://www.linkedin.com/">
+              <i class="fab fa-linkedin-in fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+            </a>
+            <!--Instagram-->
+            <a class="ins-ic" href="https://www.instagram.com/">
+              <i class="fab fa-instagram fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+            </a>
+            <!--Pinterest-->
+            <a class="pin-ic" href="https://www.pinterest.com/">
+              <i class="fab fa-pinterest fa-lg white-text fa-2x"> </i>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="footer-copyright text-center py-3">© 2019 Copyright:
+      <a href="inicio.html"> Logo.com</a>
+    </div>
+
+  </footer>
 
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
