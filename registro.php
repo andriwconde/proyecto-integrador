@@ -9,26 +9,33 @@ $errores=[
   "provincia"=>"",
   "usu-ya-regis"=>""
 ];
+
+// validacion de login
 if ($_POST) {
     if (filter_var($_POST["email-log"], FILTER_VALIDATE_EMAIL)== false) {
+    $errores["email-log"]="El mail no tiene el formato correcto<br>";
+  }
+
+  if (strlen($_POST["password-log"])>8){
+    $errores["password-log"]="Su Contraseña debe tener almenos 8 caracteres<br>";
+  }
+}
+
+// validacion de registro
+if ($_POST) {
+    if (filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)== true) {
+      $errores["email"]="Exitoso<br>";
+  }  else {
     $errores["email"]="El mail no tiene el formato correcto<br>";
   }
 
-  if (strlen($_POST["password-log"])<8){
-    $errores["password"]="Su Contraseña debe tener almenos 8 caracteres<br>";
-  }
-}
-if ($_POST) {
-    if (filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)== false) {
-    $errores["email"]="El mail no tiene el formato correcto<br>";
-  }
   if (strlen($_POST["password"])<8){
     $errores["password"]="Su Contraseña debe tener almenos 8 caracteres<br>";
   }
-  if (strlen($_POST["direccion"])< 3){
+  if (strlen($_POST["direccion"])<3){
     $errores["direccion"]="debe llenar su direccion<br>";
   }
-  if (strlen($_POST["provincia"])< 3){
+  if (strlen($_POST["provincia"])<3){
     $errores["provincia"]="debe llenar el campo provincia";
   }
 }
@@ -51,8 +58,7 @@ function verificarusuario($usuarios, $email){
   }
   return false;
 }
-// ALMACENAR DATOS DEL FORMULARIO EN ARCHIVO JSON------------------------------------------------------------------------
-// si existe post
+
 $usuarios=[];
 if($_POST){
   $json = file_get_contents("users.json");
@@ -61,7 +67,7 @@ if($_POST){
     $errores["usu-ya-regis"] = "el usuario ya esta registrado";
   }
 
-  // guardamos la informacion que ingreso el usuario en la variable $usuario
+
   else{
   $usuario = [
     "email" => $_POST["email"],
@@ -75,7 +81,7 @@ if($_POST){
   file_put_contents("users.json", $json);
   }
 }
-var_dump($_FILES);
+
 function upload($name, $dir){
   if ($_FILES[$name]['error'] === UPLOAD_ERR_OK) {
     $ext = pathinfo($_FILES[$name]['name'], PATHINFO_EXTENSION);
@@ -86,6 +92,12 @@ function upload($name, $dir){
   if ($_FILES) {
     upload("fotode-perfil","archivos");
   }
+
+
+
+
+
+
  ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -110,7 +122,7 @@ function upload($name, $dir){
       <div class="d-flex justify-content-end" id="navbarSupportedContent">
 
         <!-- BOTON DE LOGIN     -->
-        <form class="form-inline my-2 my-lg-0">
+        <form class="form-inline"id="botonhead">
 
           <button type="button" class="btn btn-outline-dark" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Acceder</button>
 
@@ -131,14 +143,14 @@ function upload($name, $dir){
 
                   <div class="form-group">
                     <label for="recipient-name" class="col-form-label">Correo Electronico:</label>
-                    <input type="text" class="form-control" id="recipient-name" name="email" value="<?=$email?>">
-                    <span><?= $errores["email"]?></span>
+                    <input type="text" class="form-control" id="recipient-name" name="email-log" value="<?=$email?>">
+                    <span><?= $errores["email-log"]?></span>
                   </div>
 
                   <div class="form-group">
                     <label for="recipient-name" class="col-form-label">Contraseña:</label>
-                    <input type="password" class="form-control" id="recipient-name" name="password" value="<?=$password?>">
-                    <span><?= $errores["password"]?></span>
+                    <input type="password" class="form-control" id="recipient-name" name="password-log" value="<?=$password?>">
+                    <span><?= $errores["password-log"]?></span>
                   </div>
 
                   <div class="d-flex justify-content-between">

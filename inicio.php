@@ -44,7 +44,7 @@
         <!-- BOTON DE LOGIN     -->
         <form class="form-inline my-2 my-lg-0">
 
-          <a href="carrito.html"><button type="button" class="btn rounded-circle btn-outline-dark"><i class="fas fa-cart-arrow-down fa-1x red-text" id="carrito"></i></button></a>
+          <a href="carrito.php"><button type="button" class="btn rounded-circle btn-outline-dark"><i class="fas fa-cart-arrow-down fa-1x red-text" id="carrito"></i></button></a>
 
         </form>
 

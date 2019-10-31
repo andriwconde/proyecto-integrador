@@ -1,3 +1,26 @@
+<?php
+// errores-------------------------------------------------------------------
+$errores=[
+  "email"=>"",
+  "password"=>"",
+];
+if ($_POST) {
+    if (filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)== false) {
+    $errores["email"]="El mail no tiene el formato correcto<br>";
+  }
+
+  if (strlen($_POST["password"])<8){
+    $errores["password"]="Su Contraseña debe tener almenos 8 caracteres<br>";
+  }
+}
+// persistecia------------------------------------------------------------------------------------------------------\
+$email="";
+$password="";
+if ($_POST){
+  $email = $_POST["email"];
+  $password = $_POST["password"];
+}
+  ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,7 +40,7 @@
       <div class="d-flex justify-content-end" id="navbarSupportedContent">
 
         <!-- BOTON DE LOGIN     -->
-        <form class="form-inline my-2 my-lg-0">
+        <form class="form-inline"id="botonhead">
 
           <button type="button" class="btn btn-outline-dark" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Acceder</button>
 
@@ -38,14 +61,14 @@
 
                   <div class="form-group">
                     <label for="recipient-name" class="col-form-label">Correo Electronico:</label>
-                    <input type="text" class="form-control" id="recipient-name" name="email">
-                    <span><?php echo $errores["email"]; ?></span>
+                    <input type="text" class="form-control" id="recipient-name" name="email" value="<?=$email?>">
+                    <span><?= $errores["email"]?></span>
                   </div>
 
                   <div class="form-group">
                     <label for="recipient-name" class="col-form-label">Contraseña:</label>
-                    <input type="password" class="form-control" id="recipient-name" name="password">
-                    <span><?php echo $errores["password"]; ?></span>
+                    <input type="password" class="form-control" id="recipient-name" name="password" value="<?=$password?>">
+                    <span><?= $errores["password"]?></span>
                   </div>
 
                   <div class="d-flex justify-content-between">
@@ -77,7 +100,7 @@
     </nav>
   </header>
 <section class="col-sm-12 p-0 col-xl-12">
-  <div class="m-0">
+  <div class="m-0" id="titulo">
     <h2 class="titulo d-flex align-items-end pl-xl-3 py-2">
       Frecuently Asked Questions</h2>
   </div>

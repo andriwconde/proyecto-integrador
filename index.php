@@ -1,6 +1,5 @@
 <?php
 $email="";
-$password="";
 $errores=[
   "email"=>"",
   "password"=>"",
@@ -16,7 +15,6 @@ if ($_POST) {
 }
 if ($_POST){
   $email = $_POST["email"];
-  $password = $_POST["password"];
 }
 
 if ($_POST) {
@@ -24,7 +22,7 @@ if ($_POST) {
   $usuarios = json_decode($json, true);
   foreach ($usuarios as $usuario) {
     if ($usuario["email"] == $_POST["email"]&&password_verify($usuario["password"], $_POST["password"])) {
-      die(header("Location: bienvenido.php"));
+      header("Location: inicio.php");
     }
     }
   }
@@ -86,7 +84,7 @@ if ($_POST) {
 
                   <div class="form-group">
                     <label for="recipient-name" class="col-form-label">Contraseña:</label>
-                    <input type="password" class="form-control" id="recipient-name" name="password" value="<?=$password?>">
+                    <input type="password" class="form-control" id="recipient-name" name="password" value="">
                     <span><?= $errores["password"]?></span>
                   </div>
 

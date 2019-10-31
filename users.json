@@ -1,16 +1,23 @@
 [
     {
         "email": "condeandres34@gmail.com",
-        "password": "$2y$10$afqlvVJyYY7eKeSjrRr88.yzK\/WJsDDHOiYKNKa974fHxap70oA.K",
+        "password": "$2y$10$6T7vExX.zZbr5qtINr8iNeOhkrfF1eFTVmcxnbTFzDj.CK5Eg14x6",
         "pais": "Argentina",
-        "provincia": "4geggegege",
-        "direccion": "4g43h434t4"
+        "provincia": "",
+        "direccion": ""
     },
     {
-        "email": "juanita@gmail.com",
-        "password": "$2y$10$lqtczJ1lZrzAXupv5KAbGeilPX2rKR1e9R0MYEFOntzseqEwMX96y",
+        "email": "iuiu",
+        "password": "$2y$10$SjNgX2CCJ7pM9HFUuxuWkuUjDeroZ0qQOhIPYl5dZlMQcqDaA6YyG",
         "pais": "Argentina",
-        "provincia": "ueuejeiceic",
-        "direccion": "cicieciencie"
+        "provincia": "",
+        "direccion": ""
+    },
+    {
+        "email": null,
+        "password": "$2y$10$JTmnlc9moBswtCLOrH.i\/eyJK8biPLNp4lJ8shWQDswd0i.hETEbu",
+        "pais": null,
+        "provincia": null,
+        "direccion": null
     }
 ]
