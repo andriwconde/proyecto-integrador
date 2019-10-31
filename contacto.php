@@ -20,7 +20,7 @@
   <header>
     <!-- NABVAR -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light d-flex justify-content-between">
-      <a class="navbar-brand" href="index.html">Logo</a>
+      <a class="navbar-brand" href="index.php">Logo</a>
 
       <div class="d-flex justify-content-end" id="navbarSupportedContent">
 
@@ -83,7 +83,7 @@
     </div>
 
     <div class="footer-copyright text-center py-3">© 2019 Copyright:
-      <a href="inicio.html"> Logo.com</a>
+      <a href="inicio.php"> Logo.com</a>
     </div>
 
   </footer>

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+.<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -19,7 +19,7 @@
   <header>
     <!-- NABVAR -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="inicio.html">Logo</a>
+      <a class="navbar-brand" href="inicio.php">Logo</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -190,7 +190,7 @@
 
       <div class="col-md-4">
 
-        <a href="contacto.html"><i class="fas fa-map-marked-alt fa-3x red-text"></i></a>
+        <a href="contacto.php"><i class="fas fa-map-marked-alt fa-3x red-text"></i></a>
         <h5 class="font-weight-bold my-4">Contactanos</h5>
 
       </div>
@@ -249,7 +249,7 @@
     </div>
 
     <div class="footer-copyright text-center py-3">© 2019 Copyright:
-      <a href="inicio.html"> Logo.com</a>
+      <a href="inicio.php"> Logo.com</a>
     </div>
 
   </footer>

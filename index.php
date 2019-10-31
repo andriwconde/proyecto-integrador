@@ -1,3 +1,38 @@
+<?php
+$email="";
+$password="";
+$errores=[
+  "email"=>"",
+  "password"=>"",
+];
+if ($_POST) {
+    if (filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)== false) {
+    $errores["email"]="El mail no tiene el formato correcto<br>";
+  }
+
+  if (strlen($_POST["password"])<8){
+    $errores["password"]="Su Contraseña debe tener almenos 8 caracteres<br>";
+  }
+}
+if ($_POST){
+  $email = $_POST["email"];
+  $password = $_POST["password"];
+}
+
+if ($_POST) {
+  $json = file_get_contents("users.json");
+  $usuarios = json_decode($json, true);
+  foreach ($usuarios as $usuario) {
+    if ($usuario["email"] == $_POST["email"]&&password_verify($usuario["password"], $_POST["password"])) {
+      die(header("Location: bienvenido.php"));
+    }
+    }
+  }
+
+
+ ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,7 +54,7 @@
   <header>
     <!-- NABVAR -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light d-flex justify-content-between">
-      <a class="navbar-brand" href="index.html">Logo</a>
+      <a class="navbar-brand" href="index.php">Logo</a>
 
       <div class="d-flex justify-content-end" id="navbarSupportedContent">
 
@@ -41,16 +76,18 @@
                 </button>
               </div>
               <div class="modal-body">
-                <form>
+                <form  action="" method="post">
 
                   <div class="form-group">
-                    <label for="recipient-name" class="col-form-label">Usuario:</label>
-                    <input type="text" class="form-control" id="recipient-name">
+                    <label for="recipient-name" class="col-form-label">Correo Electronico:</label>
+                    <input type="text" class="form-control" id="recipient-name" name="email" value="<?=$email?>">
+                    <span><?= $errores["email"]?></span>
                   </div>
 
                   <div class="form-group">
                     <label for="recipient-name" class="col-form-label">Contraseña:</label>
-                    <input type="password" class="form-control" id="recipient-name">
+                    <input type="password" class="form-control" id="recipient-name" name="password" value="<?=$password?>">
+                    <span><?= $errores["password"]?></span>
                   </div>
 
                   <div class="d-flex justify-content-between">
@@ -62,17 +99,17 @@
                     </div>
 
                     <div class="form-group">
-                      <a href="registro.html">Registrarme</a>
+                      <a href="registro.php">Registrarme</a>
                     </div>
                   </div>
-
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-outline-dark">Aceptar</button>
+                  </div>
                 </form>
               </div>
 
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                <a href="inicio.html"><button type="button" class="btn btn-outline-dark">Aceptar</button></a>
-              </div>
+
 
             </div>
           </div>
@@ -140,14 +177,14 @@
 
       <div class="col-md-4">
 
-        <a href="contacto.html"><i class="fas fa-map-marked-alt fa-3x red-text"></i></a>
+        <a href="contacto.php"><i class="fas fa-map-marked-alt fa-3x red-text"></i></a>
         <h5 class="font-weight-bold my-4">Contactanos</h5>
 
       </div>
 
       <div class="col-md-4">
 
-        <a href="#"><i class="fas fa-book fa-3x cyan-text"></i></a>
+        <a href="FAQS.php"><i class="fas fa-book fa-3x cyan-text"></i></a>
         <h5 class="font-weight-bold my-4">FQA</h5>
 
       </div>
@@ -199,7 +236,7 @@
     </div>
 
     <div class="footer-copyright text-center py-3">© 2019 Copyright:
-      <a href="inicio.html"> Logo.com</a>
+      <a href="inicio.php"> Logo.com</a>
     </div>
 
   </footer>
