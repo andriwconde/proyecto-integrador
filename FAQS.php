@@ -1,25 +1,6 @@
 <?php
-// errores-------------------------------------------------------------------
-$errores=[
-  "email"=>"",
-  "password"=>"",
-];
-if ($_POST) {
-    if (filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)== false) {
-    $errores["email"]="El mail no tiene el formato correcto<br>";
-  }
 
-  if (strlen($_POST["password"])<8){
-    $errores["password"]="Su Contraseña debe tener almenos 8 caracteres<br>";
-  }
-}
-// persistecia------------------------------------------------------------------------------------------------------\
-$email="";
-$password="";
-if ($_POST){
-  $email = $_POST["email"];
-  $password = $_POST["password"];
-}
+require("login.php");
   ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -28,77 +9,18 @@ if ($_POST){
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Frecuently Asked Questions</title>
-  <link rel="stylesheet" href="css/FAQS.css">
+  <!-- link bootsrap -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <!-- Link fontawesome -->
+  <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+  <!-- Link a google fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
+  <!-- Link a CSS -->
+  <link rel="stylesheet" href="css/FAQS.css">
+  <link rel="stylesheet" href="css/header.css">
 </head>
 <body class="container-fluid p-0 ">
-  <header>
-    <!-- NABVAR -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light d-flex justify-content-between">
-      <a class="navbar-brand" href="index.php">Logo</a>
-
-      <div class="d-flex justify-content-end" id="navbarSupportedContent">
-
-        <!-- BOTON DE LOGIN     -->
-        <form class="form-inline"id="botonhead">
-
-          <button type="button" class="btn btn-outline-dark" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Acceder</button>
-
-        </form>
-
-        <!-- FORMULARIO DE LOGIN -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Ingresar</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body">
-                <form  action="" method="post">
-
-                  <div class="form-group">
-                    <label for="recipient-name" class="col-form-label">Correo Electronico:</label>
-                    <input type="text" class="form-control" id="recipient-name" name="email" value="<?=$email?>">
-                    <span><?= $errores["email"]?></span>
-                  </div>
-
-                  <div class="form-group">
-                    <label for="recipient-name" class="col-form-label">Contraseña:</label>
-                    <input type="password" class="form-control" id="recipient-name" name="password" value="<?=$password?>">
-                    <span><?= $errores["password"]?></span>
-                  </div>
-
-                  <div class="d-flex justify-content-between">
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" id="gridCheck">
-                        <label class="form-check-label" for="gridCheck">
-                          Recordarme
-                        </label>
-                    </div>
-
-                    <div class="form-group">
-                      <a href="registro.php">Registrarme</a>
-                    </div>
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                    <button type="submit" class="btn btn-outline-dark">Aceptar</button>
-                  </div>
-                </form>
-              </div>
-
-
-
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </nav>
-  </header>
+  <?php require("header.php") ?>
 <section class="col-sm-12 p-0 col-xl-12">
   <div class="m-0" id="titulo">
     <h2 class="titulo d-flex align-items-end pl-xl-3 py-2">

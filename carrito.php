@@ -1,3 +1,17 @@
+<?php
+
+
+require("login.php");
+
+
+// $_SESSION["usuario"] = "Andres";
+
+// function usuarioLogeado($usuario)
+// {
+//   return (isset($_SESSION[$usuario])) ? true : false;
+// }
+?>
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -11,50 +25,17 @@
     <!-- Link a google fonts -->
     <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/carrito.css">
+    <link rel="stylesheet" href="css/header.css">
     <title>micarrito</title>
   </head>
   <body>
-    <header>
-      <!-- NABVAR -->
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="inicio.html">Logo</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto">
-
-            <li class="nav-item">
-              <a class="nav-link" href="#">Menu Lorem<span class="sr-only">(current)</span></a>
-            </li>
-
-            <li class="nav-item">
-              <a class="nav-link" href="#">Menu Ipsum</a>
-            </li>
-
-            <li class="nav-item">
-              <a class="nav-link" href="#">Manu Dolor</a>
-            </li>
-
-          </ul>
-
-          <!-- BOTON DE LOGIN     -->
-          <form class="form-inline my-2 my-lg-0">
-
-            <a href="carrito.html"><button type="button" class="btn rounded-circle btn-outline-dark"><i class="fas fa-cart-arrow-down fa-1x red-text" id="carrito"></i></button></a>
-
-          </form>
-
-        </div>
-      </nav>
-    </header>
+    <?php require("header.php") ?>
 
 <!-- CARRITO -->
 <section  class="d-inline-flex p-2 bd-highlight col-xl-8 tarjetaproducto ">
   <div class="card" class="row" class="col-xl-12">
       <div class= "producto" >
-        <img src="img/comidaTres.jpeg" class="card-img-top" alt="producto">
+        <img src="img/comidaTres.jpeg" class="card-img-top img" alt="producto">
         <div class="card-body">
         <h5 class="card-title">Almuerzo promoción</h5>
         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -64,14 +45,16 @@
   </div>
 </section>
 
+<?php if(usuarioLogeado("usuario")):?>
 <aside  class=" col-md-4 d-flex flex-column justify-content-end bd-highlight mb-3 float-right shadow p-3 mb-5 bg-white rounded">
   <div class=" d-flex flex-column opciones flex-end justify-content-xl-between">
-    <button type="button" name="button" class= " tn btn-primary btn-outline-dark"><a href="/inicio.html">Agregar mas platos</a></button>
+    <button type="button" name="button" class= " tn btn-primary btn-outline-dark"><a href="inicio.php">Agregar mas platos</a></button>
     <button type="button" name="button"class= "tn btn-primary btn-outline-dark"><a href="#">Eliminar plato</a></button>
     <button type="button" name="button"class= "tn btn-primary btn-outline-dark" class= "botoncalendario"><a href="#">Agregar a calendario</a></button>
     <button type="button" name="button"class= " tn btn-primary btn-outline-dark" class= "botonfinalizar"><a href="#">Finalizar compra</a></button>
   </div>
   </aside>
+<?php endif;?>
 
   <section>
     <h2>Detalle de Facturación</h2>

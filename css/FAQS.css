@@ -27,7 +27,6 @@ body{
 background-color: #F5DFBB;
 }
 form{
-  background-color: #FFF;
   padding: 10px;
 }
 /* TITULOS */
@@ -57,53 +56,7 @@ a:hover{
   text-decoration: none;
 }
 
-body{
 
-}
-/* COLOR HEADER */
-header nav.bg-light {
-  background-color: #562C2C !important;
-}
-/* COLOR LOGO */
-.navbar-light .navbar-brand {
-  color: #127475;
-  text-transform: uppercase;
-  font-weight: bold;
-}
-/* COLOR LINKS */
-.navbar-light .navbar-nav .nav-link {
-  color: #E56B6F;
-  text-transform: uppercase;
-}
-/* COLOR BOTONES */
-.btn-outline-dark {
-  color: #FFF;
-  background-color: #E56B6F;
-  border-color: #E56B6F;
-}
-.btn-outline-dark:hover{
-  background-color: #BD575A;
-  border-color: #BD575A;
-}
-.btn-outline-dark:target{
-  background-color: #BD575A;
-  border-color: #BD575A;
-}
-a:not([href]):not([tabindex]){
-  color: #FFF;
-}
-a:not([href]):not([tabindex]):hover{
-  color: #FFF;
-}
-/* HEADER LOGIN */
-.modal-header{
-  background-color: #562C2C;
-  border-top-left-radius: 0rem;
-  border-top-right-radius: 0rem;
-}
-.modal-title{
-  color: #E56B6F;
-}
 /* CARRUSEL */
 .carousel-inner{
   height: 60vh;

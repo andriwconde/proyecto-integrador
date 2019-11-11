@@ -1,3 +1,7 @@
+<?php
+
+require("login.php");
+ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,24 +16,12 @@
   <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
   <!-- link CSS -->
   <link rel="stylesheet" href="css/contacto.css">
+  <link rel="stylesheet" href="css/header.css">
   <title>Contacto</title>
 </head>
 <body>
 
-  <!-- HEADER -->
-  <header>
-    <!-- NABVAR -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light d-flex justify-content-between">
-      <a class="navbar-brand" href="index.php">Logo</a>
-
-      <div class="d-flex justify-content-end" id="navbarSupportedContent">
-
-        <h5 class="form-inline my-2 my-lg-0">Contactanos</h5>
-
-      </div>
-    </nav>
-  </header>
-
+  <?php require("header.php") ?>
   <!-- SECCION INFORMATIVA -->
   <section>
     <div class="row col-12 my-5">

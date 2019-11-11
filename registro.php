@@ -1,101 +1,60 @@
 <?php
-// errores-------------------------------------------------------------------
-$errores=[
-  "email-log"=>"",
-  "password-log"=>"",
-  "email"=>"",
-  "password"=>"",
-  "direccion"=>"",
-  "provincia"=>"",
-  "usu-ya-regis"=>""
-];
+function upload($name, $dir = "archivos"){
+  if (isset($_FILES[$name])) {
+    $ext = pathinfo($_FILES[$name]["name"], PAHTHINFO_EXTENSION);
+    $hash = md5(time() . $_FILES[$name]["temp_name"]);
+    $path ="$dir/$hash.$ext";
+    move_uploaded_file($_FILES[$name]["temp_name"], $path);
+    return $path;
+  }
+  return null;
+}
+include("login.php");
 
-// validacion de login
+
 if ($_POST) {
-    if (filter_var($_POST["email-log"], FILTER_VALIDATE_EMAIL)== false) {
-    $errores["email-log"]="El mail no tiene el formato correcto<br>";
-  }
-
-  if (strlen($_POST["password-log"])>8){
-    $errores["password-log"]="Su Contraseña debe tener almenos 8 caracteres<br>";
-  }
-}
-
-// validacion de registro
-if ($_POST) {
-    if (filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)== true) {
-      $errores["email"]="Exitoso<br>";
-  }  else {
-    $errores["email"]="El mail no tiene el formato correcto<br>";
-  }
-
-  if (strlen($_POST["password"])<8){
-    $errores["password"]="Su Contraseña debe tener almenos 8 caracteres<br>";
-  }
-  if (strlen($_POST["direccion"])<3){
-    $errores["direccion"]="debe llenar su direccion<br>";
-  }
-  if (strlen($_POST["provincia"])<3){
-    $errores["provincia"]="debe llenar el campo provincia";
-  }
-}
-// persistencia------------------------------------------------------------
-$email="";
-$password="";
-$direccion="";
-$provincia="";
-if ($_POST){
-  $email = $_POST["email"];
-  $password = $_POST["password"];
-  $direccion = $_POST["direccion"];
-  $provincia = $_POST["provincia"];
-}
-function verificarusuario($usuarios, $email){
-  foreach($usuarios as $usuario){
-    if($usuario["email"] == $email){
-      return true;
-    }
-  }
-  return false;
-}
-
-$usuarios=[];
-if($_POST){
+  $errores['registro'] = [];
   $json = file_get_contents("users.json");
   $usuarios = json_decode($json, true);
-  if(verificarusuario($usuarios, $_POST["email"])==true){
-    $errores["usu-ya-regis"] = "el usuario ya esta registrado";
-  }
 
+   // ERRORES REGISTRO
 
-  else{
-  $usuario = [
-    "email" => $_POST["email"],
-    "password" => password_hash($_POST["password"],PASSWORD_DEFAULT),
-    "pais" => $_POST["pais"],
-    "provincia" => $_POST["provincia"],
-    "direccion" => $_POST["direccion"],
-  ];
-  $usuarios[]=$usuario;
-  $json = json_encode($usuarios, JSON_PRETTY_PRINT);
-  file_put_contents("users.json", $json);
-  }
+   if(isset($_POST["email"])){
+     if (strlen (trim($_POST["email"])) <= 0) {
+       $errores['registro']["email"] = "Completa el mail";
+     }
+     elseif(!filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)) {
+       $errores['registro']["email"]="El mail no tiene el formato correcto";
+     }
+     if (strlen (trim($_POST["password"])) <= 0) {
+       $errores['registro']["password"] = "Completa tu contraseña";
+     }
+     elseif (strlen (trim($_POST["password"])) < 8){
+       $errores['registro']["password"]="Su Contraseña debe tener al menos 8 caracteres";
+     }
+     if (strlen(trim($_POST["direccion"]))<3){
+       $errores['registro']["direccion"]="debe llenar su direccion<br>";
+     }
+     if (strlen(trim($_POST["provincia"]))<3){
+       $errores['registro']["provincia"]="debe llenar el campo provincia";
+     }
+
+     if(count($errores['registro']) == 0){
+       $usuario = [
+         "email" => $_POST["email"],
+         "password" => password_hash($_POST["password"],PASSWORD_DEFAULT),
+         "pais" => $_POST["pais"],
+         "provincia" => $_POST["provincia"],
+         "direccion" => $_POST["direccion"],
+         "avatar" => upload(avatar)
+       ];
+       $usuarios[]=$usuario;
+       $json = json_encode($usuarios, JSON_PRETTY_PRINT);
+       file_put_contents("users.json", $json);
+       header('Location:registro.php?mensaje=Ya te registraste');
+     }
+   }
 }
-
-function upload($name, $dir){
-  if ($_FILES[$name]['error'] === UPLOAD_ERR_OK) {
-    $ext = pathinfo($_FILES[$name]['name'], PATHINFO_EXTENSION);
-    $hash =crypt($_FILES[$name]['name'], random_bytes(10));
-    move_uploaded_file($_FILES[$name]['tmp_name'], "$dir/$hash.$ext");
-  }
-}
-  if ($_FILES) {
-    upload("fotode-perfil","archivos");
-  }
-
-
-
-
 
 
  ?>
@@ -107,113 +66,54 @@ function upload($name, $dir){
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <!-- link bootsrap -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <!-- Link fontawesome -->
+  <script src="https://kit.fontawesome.com/a076d05399.js"></script>
   <!-- Link a google fonts -->
   <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
-  <!-- link CSS -->
+  <!-- Link a CSS -->
   <link rel="stylesheet" href="css/registro.css">
+  <link rel="stylesheet" href="css/header.css">
   <title>Registrarme!</title>
 </head>
 <body>
-  <header>
-    <!-- NABVAR -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light d-flex justify-content-between">
-      <a class="navbar-brand" href="index.php">Logo</a>
-
-      <div class="d-flex justify-content-end" id="navbarSupportedContent">
-
-        <!-- BOTON DE LOGIN     -->
-        <form class="form-inline"id="botonhead">
-
-          <button type="button" class="btn btn-outline-dark" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Acceder</button>
-
-        </form>
-
-        <!-- FORMULARIO DE LOGIN -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Ingresar</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body">
-                <form  action="" method="post">
-
-                  <div class="form-group">
-                    <label for="recipient-name" class="col-form-label">Correo Electronico:</label>
-                    <input type="text" class="form-control" id="recipient-name" name="email-log" value="<?=$email?>">
-                    <span><?= $errores["email-log"]?></span>
-                  </div>
-
-                  <div class="form-group">
-                    <label for="recipient-name" class="col-form-label">Contraseña:</label>
-                    <input type="password" class="form-control" id="recipient-name" name="password-log" value="<?=$password?>">
-                    <span><?= $errores["password-log"]?></span>
-                  </div>
-
-                  <div class="d-flex justify-content-between">
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" id="gridCheck">
-                        <label class="form-check-label" for="gridCheck">
-                          Recordarme
-                        </label>
-                    </div>
-
-                    <div class="form-group">
-                      <a href="registro.php">Registrarme</a>
-                    </div>
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                    <button type="submit" class="btn btn-outline-dark">Aceptar</button>
-                  </div>
-                </form>
-              </div>
 
 
+  <?php include("header.php"); ?>
 
-            </div>
-          </div>
-        </div>
 
-      </div>
-    </nav>
-  </header>
-  <div class="d-flex justify-content-center my-5">
+  <div class="d-flex justify-content-center my-5" id="section">
 
-    <form action="registro.php" method="post" enctype="multipart/form-data">
+    <form action="" method="post" enctype="multipart/form-data">
 
       <h1 class="form-grup col-md-12">Bienvenido a...</h1>
 
-      <h5 class="form-grup col-md-12">Segui los pasos para registrarte  <br> <?=$errores["usu-ya-regis"]?></h5>
-
+      <h5 class="form-grup col-md-12">Segui los pasos para registrarte </h5>
+      <?= $errores['registro']['usuario'] ?? null ?>
       <div class="form-row">
           <div class="form-group col-md-6">
             <label for="inputEmail4">Email</label>
-            <input type="text" class="form-control" id="inputEmail4" placeholder="Email" name="email"value="<?=$email?>">
-            <span><?=$errores["email"];?></span>
+            <input type="email" class="form-control" id="inputEmail4" placeholder="Email" name="email"  value="<?= $_POST['email'] ?? null ?>">
+            <?= $errores['registro']['email'] ?? null ?>
           </div>
 
           <div class="form-group col-md-6">
             <label for="inputPassword4">Contraseña</label>
-            <input type="password" class="form-control" id="inputPassword4" placeholder="Password" name="password"value="<?=$password?>">
-            <span><?=$errores["password"];?></span>
+            <input type="password" class="form-control" id="inputPassword4" placeholder="Password" name="password" value="<?= $_POST['password'] ?? null ?>">
+            <?= $errores['registro']['password'] ?? null ?>
           </div>
       </div>
 
           <div class="form-group">
             <label for="inputAddress">Dirección</label>
-            <input type="text" class="form-control" id="inputAddress" placeholder="Ej: Arenales 3062" name="direccion"value="<?=$direccion?>">
-            <span><?=$errores["direccion"];?></span>
+            <input type="text" class="form-control" id="inputAddress" placeholder="Ej: Arenales 3062" name="direccion" value="<?= $_POST['direccion'] ?? null ?>">
+            <?= $errores['registro']['direccion'] ?? null ?>
           </div>
 
         <div class="form-row">
           <div class="form-group col-md-6">
             <label for="inputCity">Provincia</label>
-            <input type="text" class="form-control" id="inputCity" name="provincia"value="<?=$provincia?>">
-            <span><?=$errores["provincia"];?></span>
+            <input type="text" class="form-control" id="inputCity" name="provincia" value="<?= $_POST['provincia'] ?? null ?>">
+            <?= $errores['registro']['provincia'] ?? null ?>
           </div>
 
           <div class="form-group col-md-6">
@@ -225,10 +125,10 @@ function upload($name, $dir){
               <option>Uruguay</option>
             </select>
           </div>
-          <div class="col-xl-12">
-            <label for="avatar" class="col-xl-12">Adjuntar foto de perfil<br></label>
-            <input type="file" name="fotode-perfil" value="" class="m-2">
+          <div class="form-group col-xl-12">
+             <input type="file" name="avatar" value="">
           </div>
+
           <button type="submit" class="btn btn-outline-dark align-items-end ml-3">Registrarme</button>
 
     </form>

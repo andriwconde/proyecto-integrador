@@ -1,4 +1,9 @@
-.<!DOCTYPE html>
+<?php
+
+require("login.php");
+?>
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -12,45 +17,12 @@
   <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
   <!-- link CSS -->
   <link rel="stylesheet" href="css/inicio.css">
+  <link rel="stylesheet" href="css/header.css">
   <title>Home</title>
 </head>
 <body>
 
-  <header>
-    <!-- NABVAR -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="inicio.php">Logo</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-
-          <li class="nav-item">
-            <a class="nav-link" href="#">Menu Lorem<span class="sr-only">(current)</span></a>
-          </li>
-
-          <li class="nav-item">
-            <a class="nav-link" href="#">Menu Ipsum</a>
-          </li>
-
-          <li class="nav-item">
-            <a class="nav-link" href="#">Manu Dolor</a>
-          </li>
-
-        </ul>
-
-        <!-- BOTON DE LOGIN     -->
-        <form class="form-inline my-2 my-lg-0">
-
-          <a href="carrito.php"><button type="button" class="btn rounded-circle btn-outline-dark"><i class="fas fa-cart-arrow-down fa-1x red-text" id="carrito"></i></button></a>
-
-        </form>
-
-      </div>
-    </nav>
-  </header>
+<?php include("header.php") ?>
 
   <!-- PRODUCTOS -->
   <div class="col-10 rounded mx-auto d-block">
@@ -66,7 +38,7 @@
               <img src="img/comida.jpeg" alt="Menu">
               <p class="grey-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
                 incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
-              <a class="btn btn-outline-dark btn-sm">Ver detalle</a>
+              <a class="btn btn-outline-dark btn-sm" href="carrito.php">Ver detalle</a>
 
           </div>
         </div>
@@ -77,7 +49,7 @@
               <img src="img/comida.jpeg" alt="Menu">
               <p class="grey-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
                 incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
-              <a class="btn btn-outline-dark btn-sm">Ver detalle</a>
+              <a class="btn btn-outline-dark btn-sm" href="carrito.php">Ver detalle</a>
 
           </div>
         </div>
@@ -88,7 +60,7 @@
               <img src="img/comida.jpeg" alt="Menu">
               <p class="grey-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
                 incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
-              <a class="btn btn-outline-dark btn-sm">Ver detalle</a>
+              <a class="btn btn-outline-dark btn-sm" href="carrito.php">Ver detalle</a>
 
           </div>
         </div>
@@ -108,7 +80,7 @@
               <img src="img/principal.jpeg" alt="Menu">
               <p class="grey-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
                 incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
-              <a class="btn btn-outline-dark btn-sm">Ver detalle</a>
+              <a class="btn btn-outline-dark btn-sm" href="carrito.php">Ver detalle</a>
 
           </div>
         </div>
@@ -119,7 +91,7 @@
               <img src="img/principal.jpeg" alt="Menu">
               <p class="grey-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
                 incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
-              <a class="btn btn-outline-dark btn-sm">Ver detalle</a>
+              <a class="btn btn-outline-dark btn-sm" href="carrito.php">Ver detalle</a>
 
           </div>
         </div>
@@ -130,7 +102,7 @@
               <img src="img/principal.jpeg" alt="Menu">
               <p class="grey-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
                 incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
-              <a class="btn btn-outline-dark btn-sm">Ver detalle</a>
+              <a class="btn btn-outline-dark btn-sm" href="carrito.php">Ver detalle</a>
 
           </div>
         </div>
@@ -150,7 +122,7 @@
               <img src="img/postres.jpeg" alt="Menu">
               <p class="grey-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
                 incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
-              <a class="btn btn-outline-dark btn-sm">Ver detalle</a>
+              <a class="btn btn-outline-dark btn-sm" href="carrito.php">Ver detalle</a>
 
           </div>
         </div>
@@ -161,7 +133,7 @@
               <img src="img/postres.jpeg" alt="Menu">
               <p class="grey-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
                 incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
-              <a class="btn btn-outline-dark btn-sm">Ver detalle</a>
+              <a class="btn btn-outline-dark btn-sm" href="carrito.php">Ver detalle</a>
 
           </div>
         </div>
@@ -172,7 +144,7 @@
               <img src="img/postres.jpeg" alt="Menu">
               <p class="grey-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
                 incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
-              <a class="btn btn-outline-dark btn-sm">Ver detalle</a>
+              <a class="btn btn-outline-dark btn-sm" href="carrito.php">Ver detalle</a>
 
           </div>
         </div>
