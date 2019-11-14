@@ -1,15 +1,5 @@
 <?php
-function upload($name, $dir = "archivos"){
-  if (isset($_FILES[$name])) {
-    $ext = pathinfo($_FILES[$name]["name"], PAHTHINFO_EXTENSION);
-    $hash = md5(time() . $_FILES[$name]["temp_name"]);
-    $path ="$dir/$hash.$ext";
-    move_uploaded_file($_FILES[$name]["temp_name"], $path);
-    return $path;
-  }
-  return null;
-}
-include("login.php");
+require("login.php");
 
 
 if ($_POST) {
@@ -38,6 +28,16 @@ if ($_POST) {
      if (strlen(trim($_POST["provincia"]))<3){
        $errores['registro']["provincia"]="debe llenar el campo provincia";
      }
+     function upload($name, $dir = "archivos"){
+       if (isset($_FILES[$name])) {
+         $ext = pathinfo($_FILES[$name]["name"], PAHTHINFO_EXTENSION);
+         $hash = md5(time() . $_FILES[$name]["temp_name"]);
+         $path = "$dir\/$hash.$ext";
+         move_uploaded_file($_FILES[$name]["temp_name"], $path);
+         return $path;
+       }
+       return null;
+     }
 
      if(count($errores['registro']) == 0){
        $usuario = [
@@ -46,7 +46,7 @@ if ($_POST) {
          "pais" => $_POST["pais"],
          "provincia" => $_POST["provincia"],
          "direccion" => $_POST["direccion"],
-         "avatar" => upload(avatar)
+         "avatar" => upload("avatar"),
        ];
        $usuarios[]=$usuario;
        $json = json_encode($usuarios, JSON_PRETTY_PRINT);
@@ -78,7 +78,7 @@ if ($_POST) {
 <body>
 
 
-  <?php include("header.php"); ?>
+  <?php require("header.php"); ?>
 
 
   <div class="d-flex justify-content-center my-5" id="section">

@@ -22,7 +22,7 @@ require("login.php");
 </head>
 <body>
 
-<?php include("header.php") ?>
+<?php require("header.php") ?>
 
   <!-- PRODUCTOS -->
   <div class="col-10 rounded mx-auto d-block">
