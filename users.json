@@ -1,23 +1,34 @@
 [
     {
         "email": "condeandres34@gmail.com",
-        "password": "$2y$10$6T7vExX.zZbr5qtINr8iNeOhkrfF1eFTVmcxnbTFzDj.CK5Eg14x6",
+        "password": "$2y$10$VtvCLDGJz6AFqqijzNQdROFnI5SrcY4UKdcgrc.nV1i5xNLeDvECi",
         "pais": "Argentina",
-        "provincia": "",
-        "direccion": ""
+        "provincia": "CABA",
+        "direccion": "bhebyebybe",
+        "avatar": "archivos\/4e7f27cf13c8bede2970d24f5708d210."
     },
     {
-        "email": "iuiu",
-        "password": "$2y$10$SjNgX2CCJ7pM9HFUuxuWkuUjDeroZ0qQOhIPYl5dZlMQcqDaA6YyG",
+        "email": "1234@gmail.com",
+        "password": "$2y$10$xmWE6L8myMiWV2kMqL80yOHeMorwk\/.vppZKFH7oSMCZfp2sEe2My",
         "pais": "Argentina",
-        "provincia": "",
-        "direccion": ""
+        "provincia": "firiri",
+        "direccion": "rvrm",
+        "avatar": "archivos\/527231c81ca8979cc3020c7ef75ec897."
     },
     {
-        "email": null,
-        "password": "$2y$10$JTmnlc9moBswtCLOrH.i\/eyJK8biPLNp4lJ8shWQDswd0i.hETEbu",
-        "pais": null,
-        "provincia": null,
-        "direccion": null
+        "email": "condeandres34@gmail.com",
+        "password": "$2y$10$z5OHGfJXaqD1MyAFp6NJi.rT3TXz6R6Mch5bNK\/c\/HjlTDMG9NaoC",
+        "pais": "Argentina",
+        "provincia": "n7j77",
+        "direccion": "h6hh6h",
+        "avatar": "archivos\/27f23a905de5d34a5f942fa709129c33."
+    },
+    {
+        "email": "condeandres34@gmail.com",
+        "password": "$2y$10$Xakp655deGoMuvqXbZZDNOsf29mtxB2RQFitSwkkdQqQwiID9j\/Jy",
+        "pais": "Argentina",
+        "provincia": "h6h56h65",
+        "direccion": "g6h6h5hh",
+        "avatar": "archivos\/1cbb176dd42c2a7fe7da4b026d7564b1."
     }
 ]

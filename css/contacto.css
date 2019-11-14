@@ -1,22 +1,4 @@
-*{
-  font-family: 'Poppins', sans-serif;
-}
-body{
 
-}
-/* COLOR HEADER */
-header nav.bg-light {
-  background-color: #562C2C !important;
-}
-/* COLOR LOGO */
-.navbar-light .navbar-brand {
-  color: #127475;
-  text-transform: uppercase;
-  font-weight: bold;
-}
-h5, h6{
-  color:#E56B6F;
-}
 
 /* FOOTER */
 footer{
