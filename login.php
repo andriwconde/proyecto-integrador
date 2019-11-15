@@ -48,7 +48,7 @@ $json = file_get_contents("users.json");
 
 function usuarioLogeado($usuario)
 {
-  return (isset($_SESSION[$usuario])) ? true : false;
+  return isset($_SESSION[$usuario]);
 }
 
  ?>

@@ -59,3 +59,11 @@ div .botondireccion{
 div ul .list-group{
   padding-left: 15px;
 }
+.boton-session{
+  padding:.25rem !important;
+  width: 40px !important;
+  height: 40px !important;
+  border: 0 !important;
+  border-radius: 100% !important;
+
+}

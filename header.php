@@ -73,13 +73,13 @@
       <form class="form-inline my-2 my-lg-0">
         <?php if(usuarioLogeado("usuario")):?>
         <form class="form-inline my-2 my-lg-0">
-          <a href="#" class=" mr-2" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">
-            <button type="button" class="btn rounded-circle btn-outline-dark">
-            <img src="https://www.pinclipart.com/picdir/big/3-39434_mazeo-avatar-medium-600pixel-clipart-vector-clip-art.png" class="rounded-circle rounded-sm" width="20"alt="">
+          <a href="#" class=" mr-2 " data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo" >
+            <button type="button" class="btn rounded-circle btn-outline-dark boton-session" >
+            <img src="<?= $_SESSION["usuario"]["avatar"] ?>" class="rounded-circle rounded-sm img-fluid" alt="">
             </button>
          </a>
          <a href="carrito.php">
-           <button type="button" class="btn rounded-circle btn-outline-dark">
+           <button type="button" class="btn rounded-circle btn-outline-dark boton-session">
            <i class="fas fa-cart-arrow-down fa-1x red-text" id="carrito"></i>
            </button>
         </a>

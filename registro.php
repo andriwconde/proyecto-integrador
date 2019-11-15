@@ -30,10 +30,10 @@ if ($_POST) {
      }
      function upload($name, $dir = "archivos"){
        if (isset($_FILES[$name])) {
-         $ext = pathinfo($_FILES[$name]["name"], PAHTHINFO_EXTENSION);
-         $hash = md5(time() . $_FILES[$name]["temp_name"]);
-         $path = "$dir\/$hash.$ext";
-         move_uploaded_file($_FILES[$name]["temp_name"], $path);
+         $ext = pathinfo($_FILES[$name]["name"], PATHINFO_EXTENSION);
+         $hash = md5(time() . $_FILES[$name]["tmp_name"]);
+         $path = "$dir/$hash.$ext";
+         move_uploaded_file($_FILES[$name]["tmp_name"], $path);
          return $path;
        }
        return null;
